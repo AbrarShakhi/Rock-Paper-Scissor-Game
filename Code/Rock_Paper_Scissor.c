@@ -9,10 +9,10 @@ int revealyou(int you);
 int revealcomp(int comp);
 int main()
 {
+    int navigator, number, you, comp;
+    start:
     srand(time(0));
-    int number = rand()%100 + 1;
-
-    int you, comp;
+    number = rand()%100 + 1;
 
     if(number<=33)
         comp=1;
@@ -25,18 +25,19 @@ int main()
     printf("****************************************************************************************************\n");
     printf("\t\t\t\tRock\t\tPaper\t\tSeissor\n");
     printf("\t\tComputer has already chosen one of three.\n\t\tNow you chose\n");
+    again:
     printf("\t\t1) Scissor\n");
     printf("\t\t2) Paper\n");
     printf("\t\t3) Rock\n\n");
     printf("\t\tEnter your choice : ");
     
     scanf("%d", &you);
+    fflush(stdin);
     system("cls");
     if (you!=1 && you!=2 && you!=3)
     {
-        printf("\t\tWrong input! Press any key to exit.");
-        getch();
-        return 0;
+        printf("\t\tWrong input!");
+        goto again;
     }    
     printf("****************************************************************************************************\n\n\n");
     
@@ -55,19 +56,16 @@ int main()
     printf("\n\n****************************************************************************************************\n\n\n");
     printf("\t\t1) play again.\n");
     printf("\t\t0) Exit the game.\n");
-    printf("\t\tEnter your choice : ");
+    printf("\t\tEnter your choice: ");
 
-    int navigator;
     scanf("%d", &navigator);
-    
+    fflush(stdin);
     switch (navigator)
     {
         case 1:
-            main();
-            break;
+            goto start;
     }
     return 0;
-
 }
 
 int RPS(int you, int comp)
