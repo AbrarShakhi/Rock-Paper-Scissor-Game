@@ -3,8 +3,8 @@
 #include <time.h>
 
 int RPS(int you, int comp);
-int revealyou(int you);
-int revealcomp(int comp);
+void revealyou(int you);
+void revealcomp(int comp);
 void option();
 
 int main()
@@ -80,7 +80,7 @@ int RPS(int you, int comp)
         return 1;
 }
 
-int revealyou(int you)
+void revealyou(int you)
 {
     char youstring[8];
     switch (you)
@@ -112,11 +112,9 @@ int revealyou(int you)
         break;
     }
     printf("your choice : %s\n", youstring);
-
-    return 0;
 }
 
-int revealcomp(int comp)
+void revealcomp(int comp)
 {
     char compstring[8];
     switch (comp)
@@ -148,8 +146,6 @@ int revealcomp(int comp)
         break;
     }
     printf("computer's choice : %s\n", compstring);
-
-    return 0;
 }
 void option()
 {
